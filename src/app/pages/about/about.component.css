@@ -1,0 +1,61 @@
+.about-section {
+  background-color: #fcfcfc;
+  overflow: hidden;
+}
+
+.about-img-wrapper {
+  position: relative;
+  padding: 20px;
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #0d6efd; /* Bootstrap Primary Color */
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(13, 110, 253, 0.3);
+}
+
+.experience-badge .number {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.experience-badge .text {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.icon-box {
+  background: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.feature-item h5 {
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.about-section .btn-primary {
+  transition: transform 0.3s ease;
+}
+
+.about-section .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
