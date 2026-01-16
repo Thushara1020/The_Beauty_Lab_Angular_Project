@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-uppercase tracking-wider" href="#">
+      <span class="text-primary">Buauty</span>lab
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+  <li class="nav-item">
+    <a class="nav-link px-3" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link px-3" routerLink="/products" routerLinkActive="active">Products</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link px-3" routerLink="/about" routerLinkActive="active">About Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link px-3" routerLink="/contact" routerLinkActive="active">Contact</a>
+  </li>
+</ul>
+      
+      <form class="d-flex" role="search">
+        <input class="form-control me-2 rounded-pill border-0" type="search" placeholder="Search..." aria-label="Search">
+        <button class="btn btn-primary rounded-pill px-4" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
