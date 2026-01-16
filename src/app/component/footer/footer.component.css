@@ -1,0 +1,14 @@
+.hover-link {
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.hover-link:hover {
+    opacity: 1;
+    color: #f50dfd !important;
+    padding-left: 5px; 
+}
+
+footer i {
+    color: #0101ff;
+}
