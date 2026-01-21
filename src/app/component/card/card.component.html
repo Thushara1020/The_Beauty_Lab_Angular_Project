@@ -1,34 +1,76 @@
-<div class="card-box">
-  <div class="badge-trusted">In Stock ({{ 99 }})</div>
-  
-  <div class="img-container">
-    <img src="https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp" alt="Essence Mascara">
+<div class="category-section" style="text-align: center; padding: 15px;">
+  <h4 style="margin-bottom: 10px; font-family: sans-serif;">Filter by Category:</h4>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+    <button 
+      *ngFor="let cat of categories" 
+      (click)="filterByCategory(cat)"
+      [style.background-color]="selectedCategory === cat ? '#333' : '#f0f0f0'"
+      [style.color]="selectedCategory === cat ? '#fff' : '#333'"
+      style="padding: 6px 14px; border: 1px solid #ccc; border-radius: 20px; cursor: pointer; text-transform: capitalize; font-size: 14px; transition: 0.3s;">
+      {{ cat }}
+    </button>
   </div>
+</div>
 
-  <div class="content">
-    <span class="category">Beauty</span>
-    <h3 class="title">Essence Mascara Lash Princess</h3>
-    
-    <p class="description">
-      The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects.
-    </p>
-    
-    <div class="price-row">
-      <span class="price">$ 9.99</span>
-      <span class="discount">{{ 10.48 }}% OFF</span>
+<div
+  class="card-container"
+  *ngIf="allProducts && allProducts.length > 0; else loading"
+  style="
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  "
+>
+  <div class="card-box" *ngFor="let product of visibleProducts">
+    <div class="badge-trusted">{{ product.brand | titlecase }}</div>
+
+    <div class="img-container">
+      <img
+        [src]="product.image_link"
+        [alt]="product.name"
+        (error)="updateImage($event)"
+      />
     </div>
 
-    <div class="rating">
-      Rating: ⭐ 2.56
-    </div>
+    <div class="content">
+      <span class="category">{{ product.category || "Cosmetic" }}</span>
+      <h3 class="title">{{ product.name }}</h3>
 
-    <div class="button-group">
-      <button class="add-to-cart">Add to Cart</button>
-      <button class="advice-btn">View Reviews (3)</button>
-    </div>
-    
-    <div class="delivery-tag">
-      🚚 Ships in 3-5 business days
+      <p class="description">
+        {{
+          product.description && product.description.length > 100
+            ? (product.description | slice: 0 : 100) + "..."
+            : product.description
+        }}
+      </p>
+
+      <div class="price-row">
+        <span class="price">{{ product.price_sign || "$" }}{{ product.price }}</span>
+        <span class="discount" style="color: #ff9800">⭐ {{ product.rating || "4.2" }}</span>
+      </div>
+
+      <div class="button-group">
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="advice-btn">{{ product.product_type }}</button>
+      </div>
+
+      <div class="delivery-tag">🚚 Shipping Available</div>
     </div>
   </div>
 </div>
+
+<div *ngIf="filteredProducts.length > itemsToShow" style="text-align: center; margin: 20px;">
+  <button (click)="loadMore()" 
+          style="padding: 10px 25px; cursor: pointer; background: #333; color: #fff; border: none; border-radius: 5px; font-weight: bold;">
+    Load More Products
+  </button>
+</div>
+
+<ng-template #loading>
+  <div style="text-align: center; padding: 50px">
+    <div class="spinner" style="margin-bottom: 10px;">⌛</div>
+    <h2>Loading Products...</h2>
+  </div>
+</ng-template>
