@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'https://dummyjson.com/products';
+  private apiUrl = 'http://makeup-api.herokuapp.com/api/v1/products.json';
 
   constructor(private http: HttpClient) { }
 
