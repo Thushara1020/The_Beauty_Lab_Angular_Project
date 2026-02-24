@@ -53,6 +53,6 @@ export class CardComponent implements OnInit {
   }
 
   updateImage(event: any) {
-    event.target.src = 'https://via.placeholder.com/200x200?text=No+Image';
+    event.target.src = '';
   }
 }
